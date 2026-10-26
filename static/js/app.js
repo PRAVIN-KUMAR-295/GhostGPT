@@ -190,7 +190,7 @@
       const modalHost = document.getElementById('modal-ollama-host');
       const modalStatus = document.getElementById('modal-ollama-status');
       const modalModels = document.getElementById('modal-installed-models');
-      if (modalHost) modalHost.textContent = data.ollama_host || 'http://localhost:11434';
+      if (modalHost) modalHost.textContent = data.ollama_host || 'http://127.0.0.1:11434';
 
       if (data.status === 'online') {
         if (data.model_available) {

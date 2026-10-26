@@ -10,7 +10,7 @@ load_dotenv()
 app = Flask(__name__)
 
 # Configuration
-OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434").rstrip("/")
+OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://127.0.0.1:11434").rstrip("/")
 DEFAULT_MODEL = os.getenv("OLLAMA_MODEL", "gemma3:1b")
 GENERATION_TIMEOUT = int(os.getenv("GENERATION_TIMEOUT", "90"))
 
