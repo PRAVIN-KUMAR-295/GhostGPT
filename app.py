@@ -309,10 +309,18 @@ def generate():
 
 
 if __name__ == "__main__":
+    import sys
+    # Ensure UTF-8 output on Windows consoles if supported
+    if hasattr(sys.stdout, "reconfigure"):
+        try:
+            sys.stdout.reconfigure(encoding="utf-8")
+        except Exception:
+            pass
+
     host = os.getenv("FLASK_HOST", "127.0.0.1")
     port = int(os.getenv("FLASK_PORT", "5000"))
     debug_mode = os.getenv("FLASK_DEBUG", "false").lower() in ("true", "1", "yes")
-    print(f"👻 GhostGPT starting at http://{host}:{port}")
-    print(f"🔒 Offline Local AI Inference via Ollama ({OLLAMA_HOST})")
-    print(f"🧠 Default Model: {DEFAULT_MODEL}")
+    print(f"[*] GhostGPT starting at http://{host}:{port}")
+    print(f"[*] Offline Local AI Inference via Ollama ({OLLAMA_HOST})")
+    print(f"[*] Default Model: {DEFAULT_MODEL}")
     app.run(host=host, port=port, debug=debug_mode)
